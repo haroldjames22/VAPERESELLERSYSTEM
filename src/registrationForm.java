@@ -92,38 +92,41 @@ public class registrationForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Username:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Password:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, 30));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Contact:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("User Type:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Email:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, 30));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("Confirm Pass:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, -1, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("Lastname:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, 20));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, -1, 20));
 
         cps.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cps.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +134,7 @@ public class registrationForm extends javax.swing.JFrame {
                 cpsActionPerformed(evt);
             }
         });
-        jPanel1.add(cps, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 110, 20));
+        jPanel1.add(cps, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, 200, 30));
 
         register.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         register.setText("Register");
@@ -140,7 +143,7 @@ public class registrationForm extends javax.swing.JFrame {
                 registerActionPerformed(evt);
             }
         });
-        jPanel1.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, -1, -1));
+        jPanel1.add(register, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, -1, -1));
 
         cancel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cancel.setText("Cancel");
@@ -149,11 +152,11 @@ public class registrationForm extends javax.swing.JFrame {
                 cancelActionPerformed(evt);
             }
         });
-        jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, -1));
+        jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, -1, -1));
 
         ut.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User Type", "Admin", "User" }));
-        jPanel1.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 120, -1));
+        jPanel1.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 200, 30));
 
         ps.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ps.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +164,7 @@ public class registrationForm extends javax.swing.JFrame {
                 psActionPerformed(evt);
             }
         });
-        jPanel1.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 110, 20));
+        jPanel1.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 300, 200, 30));
 
         un.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         un.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +172,7 @@ public class registrationForm extends javax.swing.JFrame {
                 unActionPerformed(evt);
             }
         });
-        jPanel1.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 110, 20));
+        jPanel1.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, 200, 30));
 
         em.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         em.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +180,7 @@ public class registrationForm extends javax.swing.JFrame {
                 emActionPerformed(evt);
             }
         });
-        jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 110, 20));
+        jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 200, 30));
 
         ln.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ln.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +188,7 @@ public class registrationForm extends javax.swing.JFrame {
                 lnActionPerformed(evt);
             }
         });
-        jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 100, 110, 20));
+        jPanel1.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, 200, 30));
 
         ct.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ct.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +196,7 @@ public class registrationForm extends javax.swing.JFrame {
                 ctActionPerformed(evt);
             }
         });
-        jPanel1.add(ct, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 110, 20));
+        jPanel1.add(ct, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, 200, 30));
 
         Fn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         Fn.addActionListener(new java.awt.event.ActionListener() {
@@ -201,24 +204,31 @@ public class registrationForm extends javax.swing.JFrame {
                 FnActionPerformed(evt);
             }
         });
-        jPanel1.add(Fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 110, 20));
+        jPanel1.add(Fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 200, 30));
 
-        jPanel2.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 51, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setText("WELCOME");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 30));
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel6.setText("WELCOME TO VAPE RESELLER SYSTEM");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 410, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 50));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Firstname:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 80, 30));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 80, 30));
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james1 (1).jpg"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 330));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 290, 310));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james2.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 440, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,7 +238,7 @@ public class registrationForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, Short.MAX_VALUE)
         );
 
         pack();
@@ -339,6 +349,7 @@ public class registrationForm extends javax.swing.JFrame {
     private javax.swing.JTextField cps;
     private javax.swing.JTextField ct;
     private javax.swing.JTextField em;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -348,6 +359,7 @@ public class registrationForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

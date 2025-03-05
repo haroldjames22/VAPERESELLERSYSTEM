@@ -61,9 +61,10 @@ public class userForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel9.setBackground(new java.awt.Color(0, 0, 255));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/users-removebg-preview edit.png"))); // NOI18N
@@ -75,7 +76,7 @@ public class userForm extends javax.swing.JFrame {
 
         jPanel9.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 230, 350));
 
-        jPanel3.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setBackground(new java.awt.Color(102, 255, 255));

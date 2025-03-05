@@ -67,9 +67,12 @@ public class loginForm extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel9.setBackground(new java.awt.Color(0, 102, 102));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -83,7 +86,7 @@ public class loginForm extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel18.setText("Username:");
         jPanel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 110, 20));
-        jPanel9.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 140, -1));
+        jPanel9.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 150, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("LOGIN");
@@ -92,7 +95,7 @@ public class loginForm extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, -1, -1));
+        jPanel9.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
 
         exit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         exit.setText("EXIT");
@@ -101,14 +104,14 @@ public class loginForm extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        jPanel9.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+        jPanel9.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
 
         Pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PassActionPerformed(evt);
             }
         });
-        jPanel9.add(Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 140, -1));
+        jPanel9.add(Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 150, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("New User? Click here to Register!");
@@ -119,18 +122,26 @@ public class loginForm extends javax.swing.JFrame {
         });
         jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 190, -1));
 
-        jPanel4.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel4.setBackground(new java.awt.Color(0, 51, 102));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel19.setText("WELCOME");
-        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 110, 20));
+        jLabel19.setText("WELCOME TO VAPE RESELLER SYSTEM");
+        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 370, 20));
 
         jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 50));
 
         jPanel5.setBackground(new java.awt.Color(0, 204, 204));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james1 (1).jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -40, 310, 390));
+
         jPanel9.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 310));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james2.png"))); // NOI18N
+        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 330, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -232,44 +243,16 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JPasswordField Pass;
     private javax.swing.JTextField User;
     private javax.swing.JButton exit;
-    private javax.swing.JLabel exit1;
-    private javax.swing.JButton exit2;
-    private javax.swing.JLabel exit3;
-    private javax.swing.JButton exit4;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JButton login;
-    private javax.swing.JButton login1;
-    private javax.swing.JPasswordField pass;
-    private javax.swing.JPasswordField pass1;
-    private javax.swing.JTextField user;
-    private javax.swing.JTextField user1;
     // End of variables declaration//GEN-END:variables
 }
