@@ -3,22 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package admin;
-
-import javax.swing.JOptionPane;
-
-
+package users;
 
 /**
  *
- * @author ADMIN
+ * @author Karystel
  */
-public class adminDashboard extends javax.swing.JFrame {
+public class userDashboard extends javax.swing.JFrame {
 
     /**
-     * Creates new form adminDashboard
+     * Creates new form userDashboard
      */
-    public adminDashboard() {
+    public userDashboard() {
         initComponents();
     }
 
@@ -32,29 +28,17 @@ public class adminDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel9 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel9.setBackground(new java.awt.Color(51, 51, 51));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("VAPE PRODUCT");
-        jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/booklist_icon_edit-removebg-preview (1).png"))); // NOI18N
-        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 90, 100));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,10 +51,10 @@ public class adminDashboard extends javax.swing.JFrame {
                 jLabel18MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 70, 20));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 70, 20));
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel19.setText("ADMIN DASHBOARD");
+        jLabel19.setText("USER DASHBOARD");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 200, 20));
 
         jPanel9.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 70));
@@ -82,30 +66,10 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setText("ADMIN");
+        jLabel5.setText("USER");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jPanel9.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 120, 340));
-
-        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
-            }
-        });
-        jPanel3.setLayout(null);
-
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setText("USERS");
-        jPanel3.add(jLabel6);
-        jLabel6.setBounds(50, 150, 47, 17);
-
-        jLabel1.setBackground(new java.awt.Color(204, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/users-removebg-preview edit.png"))); // NOI18N
-        jPanel3.add(jLabel1);
-        jLabel1.setBounds(0, 0, 150, 140);
-
-        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 150, 180));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,17 +83,10 @@ public class adminDashboard extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-        userForm usf = new userForm();
-        usf.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jPanel3MouseClicked
-
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-    this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jLabel18MouseClicked
 
     /**
@@ -149,36 +106,31 @@ public class adminDashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(adminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(userDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(adminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(userDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(adminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(userDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(adminDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(userDashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adminDashboard().setVisible(true);
+                new userDashboard().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 }

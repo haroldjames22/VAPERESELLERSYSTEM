@@ -225,7 +225,7 @@ public class registrationForm extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james1 (1).jpg"))); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 300, 330));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 290, 310));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 290, 370));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james2.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 440, 400));
@@ -250,6 +250,7 @@ public class registrationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cpsActionPerformed
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+      
         if(Fn.getText().isEmpty()|| ln.getText().isEmpty()|| em.getText().isEmpty()|| un.getText().isEmpty()
                 || ps.getText().isEmpty()|| cps.getText().isEmpty()|| ct.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"All fields are Required!");
@@ -272,6 +273,7 @@ public class registrationForm extends javax.swing.JFrame {
             
         }
         
+
         
         
       

@@ -5,6 +5,7 @@ import config.dbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import users.userDashboard;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -56,6 +57,7 @@ public class loginForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel9 = new javax.swing.JPanel();
+        showpass = new javax.swing.JCheckBox();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -75,18 +77,32 @@ public class loginForm extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(0, 102, 102));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        showpass.setText("Show password");
+        showpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showpassActionPerformed(evt);
+            }
+        });
+        jPanel9.add(showpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, -1, 20));
+
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setText("Password:");
-        jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 110, 20));
+        jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 110, 20));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel17.setText("LOGIN");
-        jPanel9.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 80, 20));
+        jPanel9.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 80, 20));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel18.setText("Username:");
-        jPanel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 110, 20));
-        jPanel9.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 150, 30));
+        jPanel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 110, 20));
+
+        User.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserActionPerformed(evt);
+            }
+        });
+        jPanel9.add(User, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 150, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("LOGIN");
@@ -95,7 +111,7 @@ public class loginForm extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+        jPanel9.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, -1, -1));
 
         exit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         exit.setText("EXIT");
@@ -104,14 +120,14 @@ public class loginForm extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        jPanel9.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, -1, -1));
+        jPanel9.add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, -1, -1));
 
         Pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PassActionPerformed(evt);
             }
         });
-        jPanel9.add(Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 150, 30));
+        jPanel9.add(Pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 150, 30));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("New User? Click here to Register!");
@@ -127,16 +143,16 @@ public class loginForm extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel19.setText("WELCOME TO VAPE RESELLER SYSTEM");
-        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 370, 20));
+        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 370, 20));
 
-        jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 50));
+        jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 70));
 
         jPanel5.setBackground(new java.awt.Color(0, 204, 204));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james1 (1).jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -40, 310, 390));
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, 310, 390));
 
         jPanel9.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 240, 310));
 
@@ -175,7 +191,7 @@ public class loginForm extends javax.swing.JFrame {
                this.dispose();
             }else if(type.equals("User")){
                 JOptionPane.showMessageDialog(null,"Login Successful!");
-                userForm ads = new userForm();
+                userDashboard ads = new userDashboard();
                 ads.setVisible(true);
                 this.dispose();
             }else{
@@ -203,6 +219,20 @@ public class loginForm extends javax.swing.JFrame {
         jjk.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserActionPerformed
+
+    private void showpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpassActionPerformed
+        if(showpass.isSelected()){
+           Pass.setEchoChar((char)0);
+        }
+        else {
+            Pass.setEchoChar('*');
+           
+        }
+    }//GEN-LAST:event_showpassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,5 +284,6 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JCheckBox showpass;
     // End of variables declaration//GEN-END:variables
 }
