@@ -10,6 +10,8 @@ import config.dbConnector;
 import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -24,6 +26,7 @@ public class userForm extends javax.swing.JFrame {
     public userForm() {
         initComponents();
         displayData();
+        
     }
     
     Color navcolor = new Color(0,102,102);
@@ -32,7 +35,7 @@ public class userForm extends javax.swing.JFrame {
      public void displayData(){
         try{
             dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT u_id, u_fname, u_lname, u_email FROM tbl_user");
+            ResultSet rs = dbc.getData("SELECT u_id, u_fname, u_lname, u_email, u_status FROM tbl_user");
             usertable.setModel(DbUtils.resultSetToTableModel(rs));
              rs.close();
         }catch(SQLException ex){
@@ -59,8 +62,15 @@ public class userForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         acc_id = new javax.swing.JLabel();
         p_add = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        p_add2 = new javax.swing.JPanel();
+        p_add3 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        p_add1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -83,7 +93,7 @@ public class userForm extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/users-removebg-preview edit.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 140));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 110));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 255, 255));
@@ -109,18 +119,96 @@ public class userForm extends javax.swing.JFrame {
         });
         p_add.setLayout(null);
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel7.setText("  ADD");
-        p_add.add(jLabel7);
-        jLabel7.setBounds(80, 0, 49, 22);
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("  ADD");
+        p_add.add(jLabel10);
+        jLabel10.setBounds(20, 110, 130, 22);
 
-        jPanel1.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 230, 30));
+        p_add2.setBackground(new java.awt.Color(0, 102, 102));
+        p_add2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_add2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_add2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_add2MouseExited(evt);
+            }
+        });
+        p_add2.setLayout(null);
+
+        p_add3.setBackground(new java.awt.Color(0, 102, 102));
+        p_add3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_add3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_add3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_add3MouseExited(evt);
+            }
+        });
+        p_add3.setLayout(null);
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel11.setText("  ADD");
+        p_add3.add(jLabel11);
+        jLabel11.setBounds(80, 0, 49, 22);
+
+        p_add2.add(p_add3);
+        p_add3.setBounds(0, 0, 0, 0);
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("  ADD");
+        p_add2.add(jLabel12);
+        jLabel12.setBounds(40, 0, 150, 22);
+
+        p_add.add(p_add2);
+        p_add2.setBounds(0, 0, 0, 0);
+
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("EDIT");
+        p_add.add(jLabel13);
+        jLabel13.setBounds(80, 0, 60, 22);
+
+        jPanel1.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 230, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("USERS");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 210, -1));
+
+        p_add1.setBackground(new java.awt.Color(0, 102, 102));
+        p_add1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_add1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                p_add1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                p_add1MouseExited(evt);
+            }
+        });
+        p_add1.setLayout(null);
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel9.setText("  ADD");
+        p_add1.add(jLabel9);
+        jLabel9.setBounds(80, 0, 60, 22);
+
+        jPanel1.add(p_add1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 230, 30));
 
         jPanel9.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 230, 350));
 
@@ -202,8 +290,75 @@ public class userForm extends javax.swing.JFrame {
     }//GEN-LAST:event_p_addMouseExited
 
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
-        // TODO add your handling code here:
+        int rowIndex = usertable.getSelectedRow();
+        
+        if(rowIndex < 0){
+           JOptionPane.showMessageDialog(null,"Please select an Item!");
+        }else{
+          
+          try{
+          dbConnector dbc = new dbConnector();
+          TableModel tbl = usertable.getModel();
+          ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
+          if(rs.next()){
+          createUserForm cuf = new createUserForm();
+          cuf.uid.setText(""+rs.getInt("u_id"));
+          cuf.ln.setText(""+rs.getString("u_lname"));
+          cuf.Fn.setText(""+rs.getString("u_fname"));
+          cuf.em.setText(""+rs.getString("u_email"));
+          cuf.un.setText(""+rs.getString("u_username"));
+          cuf.ct.setText(""+rs.getString("u_contact"));
+          cuf.ps.setText(""+rs.getString("u_password"));
+          cuf.ut.setSelectedItem(""+rs.getString("u_type"));
+          cuf.us.setSelectedItem(""+rs.getString("u_status"));
+          cuf.add.setEnabled(false);
+          cuf.update.setEnabled(true);
+          cuf.setVisible(true);
+          this.dispose();
+          } 
+          }catch(SQLException ex){
+              System.out.println(""+ex);
+          }
+          
+        }  
     }//GEN-LAST:event_p_addMouseClicked
+
+    private void p_add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add1MouseClicked
+        createUserForm cuf = new createUserForm();
+        cuf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_p_add1MouseClicked
+
+    private void p_add1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add1MouseEntered
+        p_add1.setBackground(hovercolor);
+    }//GEN-LAST:event_p_add1MouseEntered
+
+    private void p_add1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add1MouseExited
+        p_add1.setBackground(navcolor);    }//GEN-LAST:event_p_add1MouseExited
+
+    private void p_add3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_add3MouseClicked
+
+    private void p_add3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_add3MouseEntered
+
+    private void p_add3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_add3MouseExited
+
+    private void p_add2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_add2MouseClicked
+
+    private void p_add2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_add2MouseEntered
+
+    private void p_add2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_p_add2MouseExited
 
     /**
      * @param args the command line arguments
@@ -244,18 +399,25 @@ public class userForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_id;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel p_add;
+    private javax.swing.JPanel p_add1;
+    private javax.swing.JPanel p_add2;
+    private javax.swing.JPanel p_add3;
     private javax.swing.JTable usertable;
     // End of variables declaration//GEN-END:variables
 }

@@ -260,8 +260,10 @@ public class registrationForm extends javax.swing.JFrame {
                 + "VALUES('"+Fn.getText()+"', '"+ln.getText()+"', '"+em.getText()+"', '"+un.getText()+"', '"+ut.getSelectedItem()+"', '"+ps.getText()+"', '"+ct.getText()+"','Pending')"))
         {
             JOptionPane.showMessageDialog(null,"Inserted Successfully");
-            
-            
+            loginForm lg = new loginForm();
+            lg.setVisible(true);
+            this.dispose();
+                 
         }else{
         JOptionPane.showMessageDialog(null,"Connection Error!!");}
         

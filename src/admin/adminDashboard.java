@@ -1,10 +1,10 @@
-package admin;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package admin;
 
 
 import config.Session;
@@ -23,8 +23,14 @@ public class adminDashboard extends javax.swing.JFrame {
      */
     public adminDashboard() {
         initComponents();
+        
     }
-
+    
+    
+    
+        
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,7 +52,6 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,7 +70,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/booklist_icon_edit-removebg-preview (1).png"))); // NOI18N
-        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 90, 100));
+        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 90, 100));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,8 +101,9 @@ public class adminDashboard extends javax.swing.JFrame {
 
         acc_name.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         acc_name.setForeground(new java.awt.Color(0, 255, 255));
+        acc_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_name.setText("ADMIN");
-        jPanel2.add(acc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        jPanel2.add(acc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 120, -1));
 
         jPanel9.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 120, 340));
 
@@ -120,12 +126,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel3.add(jLabel1);
         jLabel1.setBounds(0, 0, 150, 140);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james2.png"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        jPanel3.add(jLabel8);
-        jLabel8.setBounds(-390, 0, 540, 280);
-
-        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, 150, 180));
+        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 150, 180));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james2.png"))); // NOI18N
         jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 590, 340));
@@ -217,7 +218,6 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
