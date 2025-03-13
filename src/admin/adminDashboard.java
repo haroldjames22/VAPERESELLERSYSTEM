@@ -128,7 +128,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 150, 180));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/james2.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/jamessssss.png"))); // NOI18N
         jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 590, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
