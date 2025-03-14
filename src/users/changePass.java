@@ -220,16 +220,14 @@ public class changePass extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_newpassActionPerformed
 
-    private void conpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conpassActionPerformed
-
-    }//GEN-LAST:event_conpassActionPerformed
-
     private void oldpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oldpassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_oldpassActionPerformed
 
     private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
-       try{
+       
+
+try{
        dbConnector dbc = new dbConnector();
        Session sess = Session.getInstance();
        
@@ -258,7 +256,6 @@ public class changePass extends javax.swing.JFrame {
        }catch(SQLException | NoSuchAlgorithmException ex){
            System.out.println(""+ex);
        }
-        
     }//GEN-LAST:event_saveMouseClicked
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
@@ -266,6 +263,10 @@ public class changePass extends javax.swing.JFrame {
         accd.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backMouseClicked
+
+    private void conpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conpassActionPerformed
+
+    }//GEN-LAST:event_conpassActionPerformed
 
     /**
      * @param args the command line arguments

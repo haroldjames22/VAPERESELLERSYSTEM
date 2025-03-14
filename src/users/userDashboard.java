@@ -133,7 +133,8 @@ public class userDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        loginForm lf = new loginForm();
+        vapesystem.loginForm lfr = new vapesystem.loginForm();
+        lfr.setVisible(true); 
         JOptionPane.showMessageDialog(null,"Logged out!");
         this.dispose();
     }//GEN-LAST:event_jLabel18MouseClicked
@@ -142,7 +143,8 @@ public class userDashboard extends javax.swing.JFrame {
        Session sess = Session.getInstance();
         if(sess.getUid() == 0){
         JOptionPane.showMessageDialog(null,"No Account, Log in first!");
-        loginForm lf = new loginForm();
+        vapesystem.loginForm lfr = new vapesystem.loginForm();
+        lfr.setVisible(true); 
         this.dispose();    
       }else{
            acc_name.setText(""+sess.getFname());  

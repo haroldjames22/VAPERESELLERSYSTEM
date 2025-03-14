@@ -25,7 +25,7 @@ public class loginForm extends javax.swing.JFrame {
 
     public loginForm() {
         initComponents();
-    }
+    }   
     
     static String status;
     static String type;
@@ -221,7 +221,7 @@ public class loginForm extends javax.swing.JFrame {
                    
                JOptionPane.showMessageDialog(null,"Inactive Account.Contact the Admin!");
                
-               }
+               }else{
                 
                 if(type.equals("Admin")){
                     JOptionPane.showMessageDialog(null,"Login Success!");
@@ -236,6 +236,8 @@ public class loginForm extends javax.swing.JFrame {
                 }else{
                       JOptionPane.showMessageDialog(null,"No account type found. Contact the Admin!");
                 }
+                
+               }
                
           }else{
                JOptionPane.showMessageDialog(null,"Invalid Account!");
