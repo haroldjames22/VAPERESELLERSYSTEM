@@ -226,36 +226,51 @@ public class changePass extends javax.swing.JFrame {
 
     private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
        
+ try {
+    dbConnector dbc = new dbConnector();
+    Session sess = Session.getInstance();    
 
-try{
-       dbConnector dbc = new dbConnector();
-       Session sess = Session.getInstance();
-       
-       
-       String query = "SELECT * FROM tbl_user WHERE u_id = '"+sess.getUid()+"'";
-       ResultSet rs = dbc.getData(query); 
-       if(rs.next()){
-         String olddbpass = rs.getString("u_password");
-         String oldhash = passwordHasher.hashPassword(oldpass.getText());
-         
-         if(olddbpass.equals(oldhash)){
-             String npass = passwordHasher.hashPassword(newpass.getText());
-             dbc.updateData("UPDATE tbl_user SET u_password = '"+npass+"'");
-             JOptionPane.showMessageDialog(null,"Successfully Updated!");
-             loginForm lfr = new loginForm();
-             this.dispose();
-             }else if(!newpass.equals(conpass)){
-                JOptionPane.showMessageDialog(null,"Password Doesn't Match!");
-                loginForm lfr = new loginForm();
-                this.dispose();
-          }else{
-            JOptionPane.showMessageDialog(null,"Old Password is Incorrect!");
-         }
-       
-       }
-       }catch(SQLException | NoSuchAlgorithmException ex){
-           System.out.println(""+ex);
-       }
+    String query = "SELECT * FROM tbl_user WHERE u_id = '"+sess.getUid()+"'";
+    ResultSet rs = dbc.getData(query);
+    
+    if (rs.next()) {
+        String olddbpass = rs.getString("u_password");
+        String oldhash = passwordHasher.hashPassword(oldpass.getText());
+        
+        if (olddbpass.equals(oldhash)) {
+           
+            String npass = newpass.getText();
+            String cpass = conpass.getText(); 
+            
+            if (npass.length() < 8) {
+                JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long!");
+                newpass.setText("");
+                conpass.setText("");
+                return;
+            }
+            if (!npass.equals(cpass)) { // Fixed comparison here
+                JOptionPane.showMessageDialog(null, "New Password and Confirm Password do not match!");
+                newpass.setText("");
+                conpass.setText("");
+                return; 
+            }
+            
+            String hashedPass = passwordHasher.hashPassword(npass);
+            dbc.updateData("UPDATE tbl_user SET u_password = '"+hashedPass+"' WHERE u_id = '"+sess.getUid()+"'");
+            
+            JOptionPane.showMessageDialog(null, "Successfully Updated");
+            
+            vapesystem.loginForm lg = new vapesystem.loginForm();
+            lg.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Old Password is Incorrect!");
+            oldpass.setText("");
+        }
+    }
+} catch (SQLException | NoSuchAlgorithmException ex) {
+    System.out.println("" + ex);
+}
     }//GEN-LAST:event_saveMouseClicked
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked

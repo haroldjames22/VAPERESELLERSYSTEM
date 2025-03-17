@@ -6,6 +6,8 @@
 package admin;
 
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -336,34 +338,41 @@ public class createUserForm extends javax.swing.JFrame {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
 
         
+       if (fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty()
+        || un.getText().isEmpty() || ps.getText().isEmpty() || ct.getText().isEmpty()) {
+           JOptionPane.showMessageDialog(null, "All fields are Required!");
+        } else if (ps.getText().length() < 8) {
+           JOptionPane.showMessageDialog(null, "Password should be 8 characters or more!");
+             ps.setText("");
+        } else if (!em.getText().matches("^.+@.+..com")) { 
+           JOptionPane.showMessageDialog(null, "Invalid Email format!");
+        } else if (!ct.getText().matches("\\d{11}")) {
+           JOptionPane.showMessageDialog(null, "Contact number must be exactly 11 digits!");
+        } else if (duplicateCheck()) {
+           System.out.println("Duplicate Exist!");
+        } else {
+           dbConnector dbc = new dbConnector();
+    
+        try {
+        // Hash the password before inserting
+        String hashedPass = passwordHasher.hashPassword(ps.getText());
         
-        if(Fn.getText().isEmpty()|| ln.getText().isEmpty()|| em.getText().isEmpty()|| un.getText().isEmpty()
-            || ps.getText().isEmpty()|| ct.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"All fields are Required!");
-        }else if(ps.getText().length()<8){
-            JOptionPane.showMessageDialog(null,"Password character should be 8 above");
-            ps.setText("");
-        }else if (!em.getText().matches("^.+@.+\\..+$")){
-            JOptionPane.showMessageDialog(null,"Invalid Email format!");
-        }else if (!ct.getText().matches("\\d{10,15}")){
-            JOptionPane.showMessageDialog(null,"Contact number must be only numbers and be between 10-15 digits!");
-        }else if (duplicateCheck()){
-            System.out.println("Duplicate Exist");
-        }else{
-            dbConnector dbc = new dbConnector();
-            if(dbc.insertData("INSERT INTO tbl_user (u_fname, u_lname, u_email, u_username, u_type, u_password, u_contact, u_status)"
-                + "VALUES('"+Fn.getText()+"', '"+ln.getText()+"', '"+em.getText()+"', '"+un.getText()+"', '"+ut.getSelectedItem()+"', '"+ps.getText()+"', '"+ct.getText()+"','"+us.getSelectedItem()+"')"))
-        {
-            JOptionPane.showMessageDialog(null,"Inserted Successfully");
+        // Use the hashed password in the SQL insert statement
+        if (dbc.insertData("INSERT INTO tbl_user(u_fname, u_lname, u_email, u_type, u_username, u_password, u_contact, u_status) "
+                + "VALUES('" + fn.getText() + "', '" + ln.getText() + "', '" + em.getText() + "', "
+                + "'" + ut.getSelectedItem() + "', '" + un.getText() + "', "
+                + "'" + hashedPass + "', '" + ct.getText() + "', '" + us.getSelectedItem() + "')")) {
+            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
             userForm uf = new userForm();
             uf.setVisible(true);
             this.dispose();
-
-        }else{
-            JOptionPane.showMessageDialog(null,"Connection Error!!");}
-
+        } else {
+            JOptionPane.showMessageDialog(null, "Connection Error!");
         }
-
+    } catch (NoSuchAlgorithmException ex) {
+        System.out.println("" + ex);
+    }
+}
     }//GEN-LAST:event_addActionPerformed
 
     private void psActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psActionPerformed

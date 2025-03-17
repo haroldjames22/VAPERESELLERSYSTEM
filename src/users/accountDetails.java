@@ -54,6 +54,8 @@ public class accountDetails extends javax.swing.JFrame {
         FN = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        save = new javax.swing.JButton();
+        back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -72,7 +74,7 @@ public class accountDetails extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(0, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Back");
+        jLabel18.setText("Logout");
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel18MouseClicked(evt);
@@ -200,7 +202,23 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel9.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/jamessssss.png"))); // NOI18N
-        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 580, 340));
+        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, 100));
+
+        save.setText("Save");
+        save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveMouseClicked(evt);
+            }
+        });
+        jPanel9.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 360, 80, -1));
+
+        back.setText("Back");
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        jPanel9.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 80, -1));
 
         getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -209,24 +227,20 @@ public class accountDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        userDashboard usd = new userDashboard();
-        usd.setVisible(true);
-        this.dispose();
+        vapesystem.loginForm lg = new vapesystem.loginForm();
+            lg.setVisible(true);
+            this.dispose();
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
        Session sess = Session.getInstance();
        
-      iddisplay.setText("USER ID"+sess.getUid());
+      iddisplay.setText("USER ID: "+sess.getUid());
       FN.setText(""+sess.getFname());
       ln.setText(""+sess.getLname());
       em.setText(""+sess.getEmail());
       un.setText(""+sess.getUsername());
       ct.setText(""+sess.getContact());
-      
-        
-                                       
-
     }//GEN-LAST:event_formWindowActivated
 
     private void lnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lnActionPerformed
@@ -255,6 +269,22 @@ public class accountDetails extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void saveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveMouseClicked
+       if(FN.getText().isEmpty()||ln.getText().isEmpty()||em.getText().isEmpty()
+            ||un.getText().isEmpty()||ct.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"All fields are Required!");
+        
+        
+        
+        }
+    }//GEN-LAST:event_saveMouseClicked
+
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
+       userDashboard usd = new userDashboard();
+        usd.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backMouseClicked
 
     /**
      * @param args the command line arguments
@@ -294,12 +324,9 @@ public class accountDetails extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FN;
-    private javax.swing.JTextField Fn;
-    private javax.swing.JTextField Fn1;
-    private javax.swing.JTextField Fn2;
-    private javax.swing.JTextField Fn3;
     private javax.swing.JLabel acc_lname;
     private javax.swing.JLabel acc_name;
+    private javax.swing.JButton back;
     private javax.swing.JTextField ct;
     private javax.swing.JTextField em;
     private javax.swing.JLabel fn;
@@ -318,6 +345,7 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTextField ln;
+    private javax.swing.JButton save;
     private javax.swing.JTextField un;
     private javax.swing.JComboBox<String> ut;
     // End of variables declaration//GEN-END:variables

@@ -90,6 +90,7 @@ public class loginForm extends javax.swing.JFrame {
         exit = new javax.swing.JButton();
         Pass = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -174,6 +175,17 @@ public class loginForm extends javax.swing.JFrame {
             }
         });
         jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 240, -1));
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 255, 255));
+        jLabel9.setText("Forgot Password? ");
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        jPanel9.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 140, -1));
 
         jPanel4.setBackground(new java.awt.Color(0, 51, 153));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -273,6 +285,12 @@ public class loginForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_showpassActionPerformed
 
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        forgetpassword fgp = new forgetpassword();
+        fgp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel9MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -321,6 +339,7 @@ public class loginForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
