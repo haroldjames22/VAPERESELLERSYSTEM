@@ -124,7 +124,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel3.add(jLabel1);
         jLabel1.setBounds(0, 0, 150, 140);
 
-        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 150, 180));
+        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 150, 180));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/jamessssss.png"))); // NOI18N
         jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 590, 340));

@@ -143,7 +143,7 @@ public class createUserForm extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 40));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,7 +154,7 @@ public class createUserForm extends javax.swing.JFrame {
                 FnActionPerformed(evt);
             }
         });
-        jPanel3.add(Fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 230, 30));
+        jPanel3.add(Fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 230, 30));
 
         ln.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ln.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +162,7 @@ public class createUserForm extends javax.swing.JFrame {
                 lnActionPerformed(evt);
             }
         });
-        jPanel3.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 230, 30));
+        jPanel3.add(ln, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 230, 30));
 
         em.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         em.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +170,7 @@ public class createUserForm extends javax.swing.JFrame {
                 emActionPerformed(evt);
             }
         });
-        jPanel3.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 230, 30));
+        jPanel3.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 210, 230, 30));
 
         un.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         un.addActionListener(new java.awt.event.ActionListener() {
@@ -178,11 +178,11 @@ public class createUserForm extends javax.swing.JFrame {
                 unActionPerformed(evt);
             }
         });
-        jPanel3.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 230, 30));
+        jPanel3.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, 230, 30));
 
         ut.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
-        jPanel3.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 230, 30));
+        jPanel3.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 230, 30));
 
         ct.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ct.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +190,7 @@ public class createUserForm extends javax.swing.JFrame {
                 ctActionPerformed(evt);
             }
         });
-        jPanel3.add(ct, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 230, 30));
+        jPanel3.add(ct, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 230, 30));
 
         ps.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         ps.addActionListener(new java.awt.event.ActionListener() {
@@ -198,52 +198,52 @@ public class createUserForm extends javax.swing.JFrame {
                 psActionPerformed(evt);
             }
         });
-        jPanel3.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 230, 30));
+        jPanel3.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 230, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 255, 255));
         jLabel3.setText("Password:");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, 30));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 255, 255));
         jLabel4.setText("Contact:");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, 30));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 255, 255));
         jLabel5.setText("User Type:");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, 30));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 255, 255));
         jLabel2.setText("Username:");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, 30));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 255, 255));
         jLabel7.setText("Email:");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, 30));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 255, 255));
         jLabel11.setText("Lastname:");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, 20));
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, 20));
 
         fn.setBackground(new java.awt.Color(0, 204, 204));
         fn.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         fn.setForeground(new java.awt.Color(0, 255, 255));
         fn.setText("Firstname:");
-        jPanel3.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, 30));
+        jPanel3.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 90, 30));
 
         us.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         us.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        jPanel3.add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 230, 30));
+        jPanel3.add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 230, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 255, 255));
         jLabel6.setText("User Status:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, 30));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, -1, 30));
 
         uid.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         uid.setEnabled(false);
@@ -252,13 +252,13 @@ public class createUserForm extends javax.swing.JFrame {
                 uidActionPerformed(evt);
             }
         });
-        jPanel3.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 230, 30));
+        jPanel3.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 230, 30));
 
         fn1.setBackground(new java.awt.Color(0, 204, 204));
         fn1.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         fn1.setForeground(new java.awt.Color(0, 255, 255));
         fn1.setText("User ID:");
-        jPanel3.add(fn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 90, 30));
+        jPanel3.add(fn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 90, 30));
 
         add.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         add.setText("ADD");
@@ -267,7 +267,7 @@ public class createUserForm extends javax.swing.JFrame {
                 addActionPerformed(evt);
             }
         });
-        jPanel3.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 100, -1));
+        jPanel3.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 100, -1));
 
         update.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         update.setText("UPDATE");
@@ -277,7 +277,7 @@ public class createUserForm extends javax.swing.JFrame {
                 updateActionPerformed(evt);
             }
         });
-        jPanel3.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 100, -1));
+        jPanel3.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 100, -1));
 
         refresh.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         refresh.setText("REFRESH");
@@ -286,7 +286,7 @@ public class createUserForm extends javax.swing.JFrame {
                 refreshActionPerformed(evt);
             }
         });
-        jPanel3.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 100, -1));
+        jPanel3.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 100, -1));
 
         del.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         del.setText("DELETE");
@@ -295,7 +295,7 @@ public class createUserForm extends javax.swing.JFrame {
                 delActionPerformed(evt);
             }
         });
-        jPanel3.add(del, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 100, -1));
+        jPanel3.add(del, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 100, -1));
 
         clear.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         clear.setText("CLEAR");
@@ -304,7 +304,7 @@ public class createUserForm extends javax.swing.JFrame {
                 clearActionPerformed(evt);
             }
         });
-        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 100, -1));
+        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 100, -1));
 
         cancel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         cancel.setText("CANCEL");
@@ -313,12 +313,12 @@ public class createUserForm extends javax.swing.JFrame {
                 cancelActionPerformed(evt);
             }
         });
-        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 100, -1));
+        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 100, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/jamessssss.png"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 490, 460));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 820, 460));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 410, 460));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 740, 460));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -445,6 +445,17 @@ public class createUserForm extends javax.swing.JFrame {
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         // TODO add your handling code here:
+        uid.setText("");
+        Fn.setText("");
+        ln.setText("");
+        em.setText("");
+        ut.setSelectedIndex(0);
+        ct.setText("");
+        ps.setText("");
+        us.setSelectedItem(0);
+        
+        
+        
     }//GEN-LAST:event_clearActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed

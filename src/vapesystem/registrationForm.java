@@ -205,7 +205,7 @@ public class registrationForm extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel6.setText("WELCOME TO VAPE RESELLER SYSTEM");
+        jLabel6.setText("REGISTRATION FORM");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 720, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 50));

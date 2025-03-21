@@ -242,6 +242,14 @@ public class changePass extends javax.swing.JFrame {
             String npass = newpass.getText();
             String cpass = conpass.getText(); 
             
+            // Check if the new password is the same as the old password
+            if (npass.equals(oldpass.getText())) {
+                JOptionPane.showMessageDialog(null, "New Password cannot be the same as the Old Password!");
+                newpass.setText("");
+                conpass.setText("");
+                return;
+            }
+            
             if (npass.length() < 8) {
                 JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long!");
                 newpass.setText("");
