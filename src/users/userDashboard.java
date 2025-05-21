@@ -39,10 +39,10 @@ public class userDashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         acc_name = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,19 +91,12 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel9.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 130, 340));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/booklist_icon_edit-removebg-preview (1).png"))); // NOI18N
-        jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, 80));
+        jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 90, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/users-removebg-preview edit.png"))); // NOI18N
-        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 150, -1));
-
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("ACCOUNT");
-        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 80, 40));
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setText("VAPE PRODUCT");
-        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 120, 40));
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel5.setText("VAPES ");
+        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 70, 40));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,7 +105,17 @@ public class userDashboard extends javax.swing.JFrame {
             }
         });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 150, 200));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/users-removebg-preview edit.png"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("ACCOUNT");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 80, 40));
+
+        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 150, 200));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/jamessssss.png"))); // NOI18N
         jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 580, 340));

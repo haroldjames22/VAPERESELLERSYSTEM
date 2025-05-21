@@ -216,11 +216,11 @@ public class registrationForm extends javax.swing.JFrame {
         fn.setText("Firstname:");
         jPanel1.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 90, 30));
 
-        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/VAPEBG (1).jpg"))); // NOI18N
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 350, 370));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/VAPEEE.jpg"))); // NOI18N
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 300, 370));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 290, 370));
 
