@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author ADMIN
  */
 public class dbConnector {
-    private Connection connect;
+    public Connection connect;
      public dbConnector(){
             try{
                 connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/vape_seller", "root", "");

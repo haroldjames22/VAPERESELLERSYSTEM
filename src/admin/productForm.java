@@ -15,6 +15,7 @@ import static java.awt.Color.gray;
 import static java.awt.Color.red;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
@@ -76,6 +77,8 @@ public class productForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         update = new javax.swing.JPanel();
         addlabel1 = new javax.swing.JLabel();
+        delete = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -94,6 +97,7 @@ public class productForm extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
         remove = new javax.swing.JButton();
         select = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -166,7 +170,7 @@ public class productForm extends javax.swing.JFrame {
         jLabel3.setText("PRINT");
         print.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 68, 30));
 
-        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 200, 30));
+        jPanel1.add(print, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 200, 30));
 
         clear.setBackground(new java.awt.Color(0, 102, 102));
         clear.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -189,12 +193,18 @@ public class productForm extends javax.swing.JFrame {
         clear.add(jLabel2);
         jLabel2.setBounds(70, 0, 70, 30);
 
-        jPanel1.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 200, 30));
+        jPanel1.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 200, 30));
 
         update.setBackground(new java.awt.Color(0, 102, 102));
         update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 updateMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                updateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                updateMouseExited(evt);
             }
         });
         update.setLayout(null);
@@ -207,6 +217,29 @@ public class productForm extends javax.swing.JFrame {
         addlabel1.setBounds(60, 0, 80, 30);
 
         jPanel1.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 200, 30));
+
+        delete.setBackground(new java.awt.Color(0, 102, 102));
+        delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deleteMouseExited(evt);
+            }
+        });
+        delete.setLayout(null);
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("DELETE");
+        delete.add(jLabel4);
+        jLabel4.setBounds(60, 0, 80, 30);
+
+        jPanel1.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 200, 30));
 
         jPanel9.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 200, 380));
 
@@ -343,6 +376,9 @@ public class productForm extends javax.swing.JFrame {
         });
         jPanel9.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 100, -1));
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/jamessssss.png"))); // NOI18N
+        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 670, 380));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -429,7 +465,7 @@ public class productForm extends javax.swing.JFrame {
     }//GEN-LAST:event_vpriceActionPerformed
 
     private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
-        
+              
     }//GEN-LAST:event_removeActionPerformed
 
     private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
@@ -485,8 +521,47 @@ public class productForm extends javax.swing.JFrame {
     }//GEN-LAST:event_clearMouseExited
 
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
-        
+         if(vid.getText().isEmpty()){
+             JOptionPane.showMessageDialog(null,"Please select a vape first!");
+         }else{
+            if (vname.getText().isEmpty() || vprice.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "All fields are Required!");
+            }else{
+              dbConnector dbc = new dbConnector();
+              dbc.updateData("UPDATE tbl_vapes SET v_name ='"+vname.getText()+"', v_price = '"+vprice.getText()+"',"
+                      + " v_status = '"+vstat.getSelectedItem()+"'WHERE v_id = '"+vid.getText()+"'");
+            JOptionPane.showMessageDialog(null, "Updated Successfully!"); 
+            displayData();
+            checkadd = true;
+            addlabel.setForeground(cyan);
+            vid.setText("");
+            vname.setText("");
+            vprice.setText("");
+            vstat.setSelectedIndex(0);
+            
+            }
+         }         
     }//GEN-LAST:event_updateMouseClicked
+
+    private void updateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseEntered
+        update.setBackground(hovercolor);
+    }//GEN-LAST:event_updateMouseEntered
+
+    private void updateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseExited
+        update.setBackground(navcolor);
+    }//GEN-LAST:event_updateMouseExited
+
+    private void deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseEntered
+        delete.setBackground(hovercolor);
+    }//GEN-LAST:event_deleteMouseEntered
+
+    private void deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseExited
+        delete.setBackground(navcolor);
+    }//GEN-LAST:event_deleteMouseExited
+
+    private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -531,6 +606,7 @@ public class productForm extends javax.swing.JFrame {
     private javax.swing.JLabel addlabel;
     private javax.swing.JLabel addlabel1;
     private javax.swing.JPanel clear;
+    private javax.swing.JPanel delete;
     private javax.swing.JLabel fn;
     private javax.swing.JLabel fn1;
     public javax.swing.JLabel image;
@@ -541,6 +617,8 @@ public class productForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
