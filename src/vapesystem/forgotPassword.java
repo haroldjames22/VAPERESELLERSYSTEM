@@ -192,12 +192,15 @@ public class forgotPassword extends javax.swing.JFrame {
             ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE u_email = '" + userEmail + "'");
             if (rs.next()) {
                 
+                
+                
                 sq.setText(rs.getString("u_question"));
                 sq.setEditable(false); 
             } else {
                 JOptionPane.showMessageDialog(null, "Email not found.");
                 sq.setText("");
             }
+            
         } catch (Exception ex) {
             System.out.println("Error: " + ex.getMessage());
         
@@ -246,6 +249,8 @@ try {
     } else {
         JOptionPane.showMessageDialog(null, "Please search for a valid email first.");
     }
+    
+    
 } catch (Exception ex) {
     System.out.println("Error: " + ex.getMessage());
 }

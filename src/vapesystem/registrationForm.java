@@ -338,7 +338,7 @@ public class registrationForm extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("REGISTRATION FORM");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 910, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 700, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 50));
 
@@ -388,7 +388,7 @@ public class registrationForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,7 +403,7 @@ public class registrationForm extends javax.swing.JFrame {
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
       
-        if (Fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
+                if (Fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
     un.getText().isEmpty() || ps.getText().isEmpty() || ct.getText().isEmpty() || 
     ans.getText().isEmpty()) {
 
@@ -431,9 +431,11 @@ public class registrationForm extends javax.swing.JFrame {
         String hashedPass = passwordHasher.hashPassword(ps.getText());
         String question = sq.getSelectedItem().toString();
         String answerHashed = passwordHasher.hashPassword(ans.getText());
+        String status = "Pending";
+        String image = "Undecided";
 
-        String sql = "INSERT INTO tbl_user (u_fname, u_lname, u_email, u_username, u_type, u_password, u_contact, u_status, u_question, u_answer) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tbl_user (u_fname, u_lname, u_email, u_username, u_type, u_password, u_contact, u_status, u_question, u_answer, u_image) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pst = dbc.connect.prepareStatement(sql);
         pst.setString(1, Fn.getText());
@@ -446,6 +448,8 @@ public class registrationForm extends javax.swing.JFrame {
         pst.setString(8, "Pending");
         pst.setString(9, question);
         pst.setString(10, answerHashed);
+        pst.setString(11, image);
+        
 
         int inserted = pst.executeUpdate();
 
