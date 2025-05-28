@@ -53,6 +53,8 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,7 +138,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel3.add(jLabel1);
         jLabel1.setBounds(0, 0, 150, 140);
 
-        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 150, 180));
+        jPanel9.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 150, 180));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,18 +151,32 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/vape icon.png"))); // NOI18N
         jPanel4.add(jLabel5);
-        jLabel5.setBounds(20, 0, 110, 93);
+        jLabel5.setBounds(20, 30, 110, 93);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 255, 255));
         jLabel7.setText("VAPES");
         jPanel4.add(jLabel7);
-        jLabel7.setBounds(50, 110, 62, 22);
+        jLabel7.setBounds(50, 150, 62, 22);
 
-        jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 150, 160));
+        jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 150, 180));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/jamessssss.png"))); // NOI18N
-        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 590, 340));
+        jPanel6.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel6.setLayout(null);
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/JAMESSTOCK (1).png"))); // NOI18N
+        jPanel6.add(jLabel8);
+        jLabel8.setBounds(24, 28, 92, 100);
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("STOCKS");
+        jPanel6.add(jLabel3);
+        jLabel3.setBounds(30, 134, 80, 35);
+
+        jPanel9.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 140, 180));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,11 +282,13 @@ this.dispose();
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 

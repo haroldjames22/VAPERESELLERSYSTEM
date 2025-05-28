@@ -402,12 +402,8 @@ public class registrationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
-<<<<<<< HEAD
-     if (Fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
-=======
-      
-                if (Fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
->>>>>>> 5401c96feb035cc2b026f95301870f27d4ee3071
+
+   if (fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
     un.getText().isEmpty() || ps.getText().isEmpty() || ct.getText().isEmpty() || 
     ans.getText().isEmpty()) {
 
@@ -415,71 +411,69 @@ public class registrationForm extends javax.swing.JFrame {
 
 } else if (ps.getText().length() < 8) {
     JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long.");
-    ps.setText("");
+    ps.setText("");  // Clear the password field after showing the error.
 
-} else if (!em.getText().matches("^.+@.+\\..+$")) {
+} else if (!em.getText().matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$")) {
     JOptionPane.showMessageDialog(null, "Invalid email format.");
-    em.setText("");
+    em.setText("");  // Clear the email field after showing the error.
 
 } else if (!ct.getText().matches("\\d{10,15}")) {
     JOptionPane.showMessageDialog(null, "Contact number must contain only digits and be between 10 to 15 digits.");
-    ct.setText("");
+    ct.setText("");  // Clear the contact field after showing the error.
 
 } else if (duplicateCheck()) {
-    System.out.println("Duplicate Exist!");
+    JOptionPane.showMessageDialog(null, "Duplicate user exists!");
+    System.out.println("Duplicate user exists!");
 
 } else {
     dbConnector dbc = new dbConnector();
-
+    
     try {
+        // Hashing the password and security answer
         String hashedPass = passwordHasher.hashPassword(ps.getText());
         String question = sq.getSelectedItem().toString();
         String answerHashed = passwordHasher.hashPassword(ans.getText());
-        String status = "Pending";
-        String image = "Undecided";
 
-<<<<<<< HEAD
-        String defaultImage = "src/images/default.png";
+        // Default image if none is provided by the user
+        String defaultImage = "src/images/default.png";  // Default image path
+        String imagePath = (destination == null || destination.isEmpty()) ? defaultImage : destination;
 
-=======
->>>>>>> 5401c96feb035cc2b026f95301870f27d4ee3071
+        // SQL query to insert user details into the database
         String sql = "INSERT INTO tbl_user (u_fname, u_lname, u_email, u_username, u_type, u_password, u_contact, u_status, u_question, u_answer, u_image) " +
                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pst = dbc.connect.prepareStatement(sql);
-        pst.setString(1, Fn.getText());
+        pst.setString(1, fn.getText());
         pst.setString(2, ln.getText());
         pst.setString(3, em.getText());
         pst.setString(4, un.getText());
         pst.setString(5, ut.getSelectedItem().toString());
         pst.setString(6, hashedPass);
         pst.setString(7, ct.getText());
-        pst.setString(8, "Pending");
+        pst.setString(8, "Pending");  // Default status
         pst.setString(9, question);
         pst.setString(10, answerHashed);
-<<<<<<< HEAD
-        pst.setString(11, defaultImage); // Add default image here
-=======
-        pst.setString(11, image);
-        
->>>>>>> 5401c96feb035cc2b026f95301870f27d4ee3071
+        pst.setString(11, imagePath);  // Default or selected image
 
         int inserted = pst.executeUpdate();
 
         if (inserted > 0) {
-            JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+            // If insertion is successful, display success message and redirect to login page
+            JOptionPane.showMessageDialog(null, "User registered successfully!");
             loginForm lg = new loginForm();
             lg.setVisible(true);
-            this.dispose();
+            this.dispose();  // Close the current form
         } else {
-            JOptionPane.showMessageDialog(null, "Connection Error!");
+            JOptionPane.showMessageDialog(null, "Failed to insert user! Please try again.");
         }
 
     } catch (Exception ex) {
+        // Print stack trace for debugging
         ex.printStackTrace();
         JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage());
     }
 }
+
 
 
     }//GEN-LAST:event_registerActionPerformed

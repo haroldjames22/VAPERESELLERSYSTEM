@@ -46,7 +46,7 @@ public class productForm extends javax.swing.JFrame {
      public void displayData(){
         try{
             dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT v_id, v_name, v_status FROM tbl_vapes");
+            ResultSet rs = dbc.getData("SELECT v_id, v_name, v_status, v_quantity FROM tbl_vapes");
             vTable.setModel(DbUtils.resultSetToTableModel(rs));
              rs.close();
         }catch(SQLException ex){
@@ -100,6 +100,8 @@ public class productForm extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
         remove = new javax.swing.JButton();
         select = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        vquant = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -298,13 +300,13 @@ public class productForm extends javax.swing.JFrame {
                 vidActionPerformed(evt);
             }
         });
-        jPanel9.add(vid, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 230, 30));
+        jPanel9.add(vid, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 230, 30));
 
         fn1.setBackground(new java.awt.Color(0, 204, 204));
         fn1.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         fn1.setForeground(new java.awt.Color(0, 255, 255));
         fn1.setText("Vape ID:");
-        jPanel9.add(fn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, 100, 30));
+        jPanel9.add(fn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 100, 30));
 
         vname.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         vname.addActionListener(new java.awt.event.ActionListener() {
@@ -312,13 +314,13 @@ public class productForm extends javax.swing.JFrame {
                 vnameActionPerformed(evt);
             }
         });
-        jPanel9.add(vname, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, 230, 30));
+        jPanel9.add(vname, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 230, 30));
 
         fn.setBackground(new java.awt.Color(0, 204, 204));
         fn.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         fn.setForeground(new java.awt.Color(0, 255, 255));
         fn.setText("Vape Name:");
-        jPanel9.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 100, 30));
+        jPanel9.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 100, 30));
 
         vprice.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         vprice.addActionListener(new java.awt.event.ActionListener() {
@@ -326,21 +328,21 @@ public class productForm extends javax.swing.JFrame {
                 vpriceActionPerformed(evt);
             }
         });
-        jPanel9.add(vprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 230, 30));
+        jPanel9.add(vprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, 230, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 255, 255));
         jLabel11.setText("Price:");
-        jPanel9.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 100, 30));
+        jPanel9.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 320, 100, 30));
 
         vstat.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         vstat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Out of Stock", " " }));
-        jPanel9.add(vstat, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 230, 30));
+        jPanel9.add(vstat, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 230, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 255, 255));
         jLabel7.setText("User Status:");
-        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 100, 30));
+        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, 100, 30));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -349,17 +351,17 @@ public class productForm extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                .addComponent(image, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 320, 170));
+        jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 320, 130));
 
         remove.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         remove.setText("REMOVE");
@@ -368,7 +370,7 @@ public class productForm extends javax.swing.JFrame {
                 removeActionPerformed(evt);
             }
         });
-        jPanel9.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, 100, -1));
+        jPanel9.add(remove, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 210, 100, -1));
 
         select.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         select.setText("SELECT");
@@ -377,7 +379,20 @@ public class productForm extends javax.swing.JFrame {
                 selectActionPerformed(evt);
             }
         });
-        jPanel9.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 250, 100, -1));
+        jPanel9.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 100, -1));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel12.setText("Stock Quantity:");
+        jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 130, 30));
+
+        vquant.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        vquant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vquantActionPerformed(evt);
+            }
+        });
+        jPanel9.add(vquant, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 230, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/jamessssss.png"))); // NOI18N
         jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 670, 380));
@@ -412,24 +427,36 @@ public class productForm extends javax.swing.JFrame {
 
     private void p_add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add1MouseClicked
         if (checkadd) {
-    
-    if (vname.getText().isEmpty() || vprice.getText().isEmpty()) {
+
+    // Check for empty fields
+    if (vname.getText().isEmpty() || vprice.getText().isEmpty() || vquant.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "All fields are Required!");
     } else {
+
+        // Validate numeric input
+        try {
+            Double.parseDouble(vprice.getText()); // check price is numeric
+            Integer.parseInt(vquant.getText());     // check quantity is integer
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(null, "Price and Quantity must be valid numbers!");
+            return;
+        }
+
         try {
             dbConnector dbc = new dbConnector();
 
-            // Insert vape record
-            String insertQuery = "INSERT INTO tbl_vapes (v_name, v_price, v_status, v_image) VALUES (?, ?, ?, '')";
+            // Insert vape record including stock quantity
+            String insertQuery = "INSERT INTO tbl_vapes (v_name, v_price, v_status, v_image, v_quantity) VALUES (?, ?, ?, '', ?)";
             PreparedStatement pst = dbc.connect.prepareStatement(insertQuery);
             pst.setString(1, vname.getText());
             pst.setString(2, vprice.getText());
             pst.setString(3, vstat.getSelectedItem().toString());
+            pst.setInt(4, Integer.parseInt(vquant.getText()));
             pst.executeUpdate();
 
             // Log the insert action
             Session sess = Session.getInstance();
-            int currentUserId = sess.getUid();  // Replace with your way of tracking logged-in user
+            int currentUserId = sess.getUid();
 
             if (currentUserId > 0) {
                 String logAction = "Added Vape: " + vname.getText();
@@ -451,6 +478,7 @@ public class productForm extends javax.swing.JFrame {
             vid.setText("");
             vname.setText("");
             vprice.setText("");
+            vquant.setText(""); // reset quantity
             vstat.setSelectedIndex(0);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
@@ -461,6 +489,7 @@ public class productForm extends javax.swing.JFrame {
 } else {
     JOptionPane.showMessageDialog(null, "Clear the Field First!");
 }
+
 
            
         
@@ -522,6 +551,7 @@ public class productForm extends javax.swing.JFrame {
           vname.setText(""+rs.getString("v_name"));
           vprice.setText(""+rs.getString("v_price"));
           vstat.setSelectedItem(""+rs.getString("v_status"));
+          vquant.setText(""+rs.getInt("v_quantity"));
           p_add1.setEnabled(false);
           addlabel.setForeground(blue);
           checkadd = false;
@@ -542,6 +572,7 @@ public class productForm extends javax.swing.JFrame {
         vname.setText("");
         vprice.setText("");
         vstat.setSelectedIndex(0);
+        vquant.setText("");
         
     }//GEN-LAST:event_clearMouseClicked
 
@@ -557,24 +588,34 @@ public class productForm extends javax.swing.JFrame {
         if (vid.getText().isEmpty()) {
     JOptionPane.showMessageDialog(null, "Please select a vape first!");
 } else {
-    if (vname.getText().isEmpty() || vprice.getText().isEmpty()) {
+    if (vname.getText().isEmpty() || vprice.getText().isEmpty() || vquant.getText().isEmpty()) {
         JOptionPane.showMessageDialog(null, "All fields are Required!");
     } else {
+        // Validate price and quantity are numbers
+        try {
+            Double.parseDouble(vprice.getText()); // Validate price
+            Integer.parseInt(vquant.getText());   // Validate quantity
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Price and Quantity must be valid numbers!");
+            return;
+        }
+
         try {
             dbConnector dbc = new dbConnector();
 
-            // Update the vape record
-            String updateQuery = "UPDATE tbl_vapes SET v_name = ?, v_price = ?, v_status = ? WHERE v_id = ?";
+            // Update the vape record including quantity
+            String updateQuery = "UPDATE tbl_vapes SET v_name = ?, v_price = ?, v_status = ?, v_quantity = ? WHERE v_id = ?";
             PreparedStatement pst = dbc.connect.prepareStatement(updateQuery);
             pst.setString(1, vname.getText());
             pst.setString(2, vprice.getText());
             pst.setString(3, vstat.getSelectedItem().toString());
-            pst.setString(4, vid.getText());
+            pst.setInt(4, Integer.parseInt(vquant.getText()));  // stock quantity
+            pst.setString(5, vid.getText());
             pst.executeUpdate();
 
             // Insert log entry
             Session sess = Session.getInstance();
-            int currentUserId = sess.getUid();  // Replace this if you have a different session handling
+            int currentUserId = sess.getUid();
 
             if (currentUserId > 0) {
                 String logAction = "Updated Vape ID " + vid.getText() + ": " + vname.getText();
@@ -596,6 +637,7 @@ public class productForm extends javax.swing.JFrame {
             vid.setText("");
             vname.setText("");
             vprice.setText("");
+            vquant.setText("");
             vstat.setSelectedIndex(0);
 
         } catch (SQLException ex) {
@@ -604,6 +646,7 @@ public class productForm extends javax.swing.JFrame {
         }
     }
 }
+
 
     }//GEN-LAST:event_updateMouseClicked
 
@@ -626,6 +669,10 @@ public class productForm extends javax.swing.JFrame {
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteMouseClicked
+
+    private void vquantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vquantActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vquantActionPerformed
 
     /**
      * @param args the command line arguments
@@ -676,6 +723,7 @@ public class productForm extends javax.swing.JFrame {
     public javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -699,6 +747,7 @@ public class productForm extends javax.swing.JFrame {
     public javax.swing.JTextField vid;
     public javax.swing.JTextField vname;
     public javax.swing.JTextField vprice;
+    public javax.swing.JTextField vquant;
     public javax.swing.JComboBox<String> vstat;
     // End of variables declaration//GEN-END:variables
 }
