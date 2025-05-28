@@ -6,6 +6,7 @@ import config.Session;
 import config.dbConnector;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -285,42 +286,74 @@ public class orderForm extends javax.swing.JFrame {
     }//GEN-LAST:event_acc_name5MouseClicked
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-       Session sess = Session.getInstance();
+      Session sess = Session.getInstance();
 
 if (vid.getText().isEmpty() || vname.getText().isEmpty() || oquant.getText().isEmpty() || odate.getText().isEmpty()) {
-    JOptionPane.showMessageDialog(null, "All fields are Required!");
+    JOptionPane.showMessageDialog(null, "All fields are required!");
 } else {
     try {
         dbConnector dbc = new dbConnector();
+        int orderedQuantity = Integer.parseInt(oquant.getText());
 
-        // Insert the order
-        boolean inserted = dbc.insertData(
-            "INSERT INTO tbl_orders (u_id, v_id, quantity, date, status) VALUES ('" +
-            sess.getUid() + "', '" + vid.getText() + "', '" + oquant.getText() + "', '" +
-            odate.getText() + "', '" + ostat.getSelectedItem() + "')"
-        );
+        // Step 1: Get current stock from the correct column
+        String stockQuery = "SELECT v_quantity FROM tbl_vapes WHERE v_id = ?";
+        PreparedStatement stockStmt = dbc.connect.prepareStatement(stockQuery);
+        stockStmt.setString(1, vid.getText());
+        ResultSet rs = stockStmt.executeQuery();
 
-        if (inserted) {
-            // Log the action
-            String logAction = "Added order for Vape ID " + vid.getText();
-            String logQuery = "INSERT INTO tbl_logs (u_id, action, date) VALUES (?, ?, ?)";
-            PreparedStatement logStmt = dbc.connect.prepareStatement(logQuery);
-            logStmt.setInt(1, sess.getUid());
-            logStmt.setString(2, logAction);
-            logStmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
-            logStmt.executeUpdate();
-            logStmt.close();
+        if (rs.next()) {
+            int currentStock = rs.getInt("v_quantity");
 
-            JOptionPane.showMessageDialog(null, "Order Added!");
+            if (orderedQuantity > currentStock) {
+                JOptionPane.showMessageDialog(null, "Not enough stock available!");
+            } else {
+                // Step 2: Insert the order
+                boolean inserted = dbc.insertData(
+                    "INSERT INTO tbl_orders (u_id, v_id, quantity, date, status) VALUES ('" +
+                    sess.getUid() + "', '" + vid.getText() + "', '" + oquant.getText() + "', '" +
+                    odate.getText() + "', '" + ostat.getSelectedItem() + "')"
+                );
+
+                if (inserted) {
+                    // Step 3: Update the stock
+                    int newStock = currentStock - orderedQuantity;
+                    String updateStockQuery = "UPDATE tbl_vapes SET v_quantity = ? WHERE v_id = ?";
+                    PreparedStatement updateStockStmt = dbc.connect.prepareStatement(updateStockQuery);
+                    updateStockStmt.setInt(1, newStock);
+                    updateStockStmt.setString(2, vid.getText());
+                    updateStockStmt.executeUpdate();
+                    updateStockStmt.close();
+
+                    // Step 4: Log the action
+                    String logAction = "Added order for Vape ID " + vid.getText();
+                    String logQuery = "INSERT INTO tbl_logs (u_id, action, date) VALUES (?, ?, ?)";
+                    PreparedStatement logStmt = dbc.connect.prepareStatement(logQuery);
+                    logStmt.setInt(1, sess.getUid());
+                    logStmt.setString(2, logAction);
+                    logStmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+                    logStmt.executeUpdate();
+                    logStmt.close();
+
+                    JOptionPane.showMessageDialog(null, "Order Added and Stock Updated!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Order failed to add.");
+                }
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Order failed to add.");
+            JOptionPane.showMessageDialog(null, "Vape ID not found.");
         }
 
+        rs.close();
+        stockStmt.close();
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Quantity must be a number.");
     } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
         ex.printStackTrace();
     }
 }
+
 
     }//GEN-LAST:event_addActionPerformed
 

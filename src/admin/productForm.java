@@ -426,40 +426,42 @@ public class productForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void p_add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add1MouseClicked
-        if (checkadd) {
-
-    // Check for empty fields
-    if (vname.getText().isEmpty() || vprice.getText().isEmpty() || vquant.getText().isEmpty()) {
-        JOptionPane.showMessageDialog(null, "All fields are Required!");
-    } else {
-
-        // Validate numeric input
+     
+        
         try {
-            Double.parseDouble(vprice.getText()); // check price is numeric
-            Integer.parseInt(vquant.getText());     // check quantity is integer
-        } catch (NumberFormatException nfe) {
-            JOptionPane.showMessageDialog(null, "Price and Quantity must be valid numbers!");
-            return;
-        }
+    dbConnector dbc = new dbConnector();
 
-        try {
-            dbConnector dbc = new dbConnector();
+    // Get selected vape name and ordered quantity
+    String vapeName = vname.getText();
+    int orderQuantity = Integer.parseInt(vquant.getText());
 
-            // Insert vape record including stock quantity
-            String insertQuery = "INSERT INTO tbl_vapes (v_name, v_price, v_status, v_image, v_quantity) VALUES (?, ?, ?, '', ?)";
-            PreparedStatement pst = dbc.connect.prepareStatement(insertQuery);
-            pst.setString(1, vname.getText());
-            pst.setString(2, vprice.getText());
-            pst.setString(3, vstat.getSelectedItem().toString());
-            pst.setInt(4, Integer.parseInt(vquant.getText()));
-            pst.executeUpdate();
+    // Fetch current stock
+    String stockQuery = "SELECT v_quantity FROM tbl_vapes WHERE v_name = ?";
+    PreparedStatement stockPst = dbc.connect.prepareStatement(stockQuery);
+    stockPst.setString(1, vapeName);
+    ResultSet rs = stockPst.executeQuery();
 
-            // Log the insert action
+    if (rs.next()) {
+        int currentStock = rs.getInt("v_quantity");
+
+        if (orderQuantity > currentStock) {
+            JOptionPane.showMessageDialog(null, "Insufficient stock! Only " + currentStock + " units available.");
+        } else {
+            // Deduct stock
+            int newStock = currentStock - orderQuantity;
+
+            String updateQuery = "UPDATE tbl_vapes SET v_quantity = ? WHERE v_name = ?";
+            PreparedStatement updatePst = dbc.connect.prepareStatement(updateQuery);
+            updatePst.setInt(1, newStock);
+            updatePst.setString(2, vapeName);
+            updatePst.executeUpdate();
+
+            // Log the order deduction
             Session sess = Session.getInstance();
             int currentUserId = sess.getUid();
 
             if (currentUserId > 0) {
-                String logAction = "Added Vape: " + vname.getText();
+                String logAction = "Ordered " + orderQuantity + " of Vape: " + vapeName + " (Stock updated)";
                 String logQuery = "INSERT INTO tbl_logs (u_id, action, date) VALUES (?, ?, ?)";
                 PreparedStatement logPst = dbc.connect.prepareStatement(logQuery);
                 logPst.setInt(1, currentUserId);
@@ -469,26 +471,21 @@ public class productForm extends javax.swing.JFrame {
                 logPst.close();
             }
 
-            JOptionPane.showMessageDialog(null, "Successfully Added!");
-            displayData();
-
-            // Reset form
-            checkadd = true;
-            addlabel.setForeground(cyan);
-            vid.setText("");
-            vname.setText("");
-            vprice.setText("");
-            vquant.setText(""); // reset quantity
-            vstat.setSelectedIndex(0);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Order placed successfully. Stock updated.");
+            displayData(); // Refresh UI
         }
+    } else {
+        JOptionPane.showMessageDialog(null, "Vape item not found!");
     }
 
-} else {
-    JOptionPane.showMessageDialog(null, "Clear the Field First!");
+    rs.close();
+    stockPst.close();
+
+} catch (SQLException ex) {
+    JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
+    ex.printStackTrace();
 }
+
 
 
            
