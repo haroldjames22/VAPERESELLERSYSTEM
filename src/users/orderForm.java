@@ -5,8 +5,12 @@ import admin.adminDashboard;
 import config.Session;
 import config.dbConnector;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
@@ -101,10 +105,20 @@ public class orderForm extends javax.swing.JFrame {
 
         update.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         update.setText("Update");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
         jPanel2.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 90, -1));
 
         delete.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         delete.setText("Delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
         jPanel2.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 90, -1));
 
         acc_name.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -271,21 +285,56 @@ public class orderForm extends javax.swing.JFrame {
     }//GEN-LAST:event_acc_name5MouseClicked
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        Session sess = Session.getInstance();
-        if (vid.getText().isEmpty() || vname.getText().isEmpty() && oquant.getText().isEmpty() && odate.getText().isEmpty()) {
-           JOptionPane.showMessageDialog(null, "All fields are Required!");
-        }else{
-           dbConnector dbc = new dbConnector();
-           if (dbc.insertData("INSERT INTO tbl_orders(u_id, v_id, quantity, date, status) VALUES ('" +sess.getUid()+ "', '" + vid.getText() + "',"
-                   + " '" + oquant.getText() + "', '" + odate.getText() + "', '" + ostat.getSelectedItem() + "')")){
-           JOptionPane.showMessageDialog(null, "Order Added!");
-           }
+       Session sess = Session.getInstance();
+
+if (vid.getText().isEmpty() || vname.getText().isEmpty() || oquant.getText().isEmpty() || odate.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are Required!");
+} else {
+    try {
+        dbConnector dbc = new dbConnector();
+
+        // Insert the order
+        boolean inserted = dbc.insertData(
+            "INSERT INTO tbl_orders (u_id, v_id, quantity, date, status) VALUES ('" +
+            sess.getUid() + "', '" + vid.getText() + "', '" + oquant.getText() + "', '" +
+            odate.getText() + "', '" + ostat.getSelectedItem() + "')"
+        );
+
+        if (inserted) {
+            // Log the action
+            String logAction = "Added order for Vape ID " + vid.getText();
+            String logQuery = "INSERT INTO tbl_logs (u_id, action, date) VALUES (?, ?, ?)";
+            PreparedStatement logStmt = dbc.connect.prepareStatement(logQuery);
+            logStmt.setInt(1, sess.getUid());
+            logStmt.setString(2, logAction);
+            logStmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+            logStmt.executeUpdate();
+            logStmt.close();
+
+            JOptionPane.showMessageDialog(null, "Order Added!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Order failed to add.");
         }
+
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
+        ex.printStackTrace();
+    }
+}
+
     }//GEN-LAST:event_addActionPerformed
 
     private void oquantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oquantActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_oquantActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateActionPerformed
 
    
     public static void main(String args[]) {

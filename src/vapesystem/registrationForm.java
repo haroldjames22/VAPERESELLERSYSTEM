@@ -402,8 +402,7 @@ public class registrationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
-      
-        if (Fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
+     if (Fn.getText().isEmpty() || ln.getText().isEmpty() || em.getText().isEmpty() ||
     un.getText().isEmpty() || ps.getText().isEmpty() || ct.getText().isEmpty() || 
     ans.getText().isEmpty()) {
 
@@ -432,8 +431,10 @@ public class registrationForm extends javax.swing.JFrame {
         String question = sq.getSelectedItem().toString();
         String answerHashed = passwordHasher.hashPassword(ans.getText());
 
-        String sql = "INSERT INTO tbl_user (u_fname, u_lname, u_email, u_username, u_type, u_password, u_contact, u_status, u_question, u_answer) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String defaultImage = "src/images/default.png";
+
+        String sql = "INSERT INTO tbl_user (u_fname, u_lname, u_email, u_username, u_type, u_password, u_contact, u_status, u_question, u_answer, u_image) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement pst = dbc.connect.prepareStatement(sql);
         pst.setString(1, Fn.getText());
@@ -446,6 +447,7 @@ public class registrationForm extends javax.swing.JFrame {
         pst.setString(8, "Pending");
         pst.setString(9, question);
         pst.setString(10, answerHashed);
+        pst.setString(11, defaultImage); // Add default image here
 
         int inserted = pst.executeUpdate();
 
@@ -463,6 +465,7 @@ public class registrationForm extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage());
     }
 }
+
 
     }//GEN-LAST:event_registerActionPerformed
 

@@ -326,7 +326,7 @@ public class userForm extends javax.swing.JFrame {
           cuf.un.setText(""+rs.getString("u_username"));
           cuf.ct.setText(""+rs.getString("u_contact"));
           cuf.ps.setText(""+rs.getString("u_password"));
-          cuf.ut.setSelectedItem(""+rs.getString("u_type"));
+          cuf.sq.setSelectedItem(""+rs.getString("u_type"));
           cuf.us.setSelectedItem(""+rs.getString("u_status"));
           cuf.image.setIcon(cuf.ResizeImage(rs.getString("u_image"),null,cuf.image));
           cuf.oldpath = rs.getString("u_image");

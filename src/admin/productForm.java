@@ -13,8 +13,11 @@ import static java.awt.Color.blue;
 import static java.awt.Color.cyan;
 import static java.awt.Color.gray;
 import static java.awt.Color.red;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
@@ -408,27 +411,57 @@ public class productForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void p_add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_add1MouseClicked
-        if(checkadd){
-            
-          if (vname.getText().isEmpty() || vprice.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "All fields are Required!");
-          }else{
+        if (checkadd) {
+    
+    if (vname.getText().isEmpty() || vprice.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "All fields are Required!");
+    } else {
+        try {
             dbConnector dbc = new dbConnector();
-            dbc.insertData("INSERT INTO tbl_vapes (v_name, v_price, v_status, v_image) VALUES ('"+vname.getText()+"', '"+vprice.getText()+"', '"+vstat.getSelectedItem()+"','')");
+
+            // Insert vape record
+            String insertQuery = "INSERT INTO tbl_vapes (v_name, v_price, v_status, v_image) VALUES (?, ?, ?, '')";
+            PreparedStatement pst = dbc.connect.prepareStatement(insertQuery);
+            pst.setString(1, vname.getText());
+            pst.setString(2, vprice.getText());
+            pst.setString(3, vstat.getSelectedItem().toString());
+            pst.executeUpdate();
+
+            // Log the insert action
+            Session sess = Session.getInstance();
+            int currentUserId = sess.getUid();  // Replace with your way of tracking logged-in user
+
+            if (currentUserId > 0) {
+                String logAction = "Added Vape: " + vname.getText();
+                String logQuery = "INSERT INTO tbl_logs (u_id, action, date) VALUES (?, ?, ?)";
+                PreparedStatement logPst = dbc.connect.prepareStatement(logQuery);
+                logPst.setInt(1, currentUserId);
+                logPst.setString(2, logAction);
+                logPst.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+                logPst.executeUpdate();
+                logPst.close();
+            }
+
             JOptionPane.showMessageDialog(null, "Successfully Added!");
             displayData();
+
+            // Reset form
             checkadd = true;
             addlabel.setForeground(cyan);
             vid.setText("");
             vname.setText("");
             vprice.setText("");
             vstat.setSelectedIndex(0);
-          }
-            
-            
-        }else{
-          JOptionPane.showMessageDialog(null,"Clear the Field First!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
+            ex.printStackTrace();
         }
+    }
+
+} else {
+    JOptionPane.showMessageDialog(null, "Clear the Field First!");
+}
+
            
         
     }//GEN-LAST:event_p_add1MouseClicked
@@ -521,26 +554,57 @@ public class productForm extends javax.swing.JFrame {
     }//GEN-LAST:event_clearMouseExited
 
     private void updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseClicked
-         if(vid.getText().isEmpty()){
-             JOptionPane.showMessageDialog(null,"Please select a vape first!");
-         }else{
-            if (vname.getText().isEmpty() || vprice.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "All fields are Required!");
-            }else{
-              dbConnector dbc = new dbConnector();
-              dbc.updateData("UPDATE tbl_vapes SET v_name ='"+vname.getText()+"', v_price = '"+vprice.getText()+"',"
-                      + " v_status = '"+vstat.getSelectedItem()+"'WHERE v_id = '"+vid.getText()+"'");
-            JOptionPane.showMessageDialog(null, "Updated Successfully!"); 
+        if (vid.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "Please select a vape first!");
+} else {
+    if (vname.getText().isEmpty() || vprice.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "All fields are Required!");
+    } else {
+        try {
+            dbConnector dbc = new dbConnector();
+
+            // Update the vape record
+            String updateQuery = "UPDATE tbl_vapes SET v_name = ?, v_price = ?, v_status = ? WHERE v_id = ?";
+            PreparedStatement pst = dbc.connect.prepareStatement(updateQuery);
+            pst.setString(1, vname.getText());
+            pst.setString(2, vprice.getText());
+            pst.setString(3, vstat.getSelectedItem().toString());
+            pst.setString(4, vid.getText());
+            pst.executeUpdate();
+
+            // Insert log entry
+            Session sess = Session.getInstance();
+            int currentUserId = sess.getUid();  // Replace this if you have a different session handling
+
+            if (currentUserId > 0) {
+                String logAction = "Updated Vape ID " + vid.getText() + ": " + vname.getText();
+                String logQuery = "INSERT INTO tbl_logs (u_id, action, date) VALUES (?, ?, ?)";
+                PreparedStatement logPst = dbc.connect.prepareStatement(logQuery);
+                logPst.setInt(1, currentUserId);
+                logPst.setString(2, logAction);
+                logPst.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+                logPst.executeUpdate();
+                logPst.close();
+            }
+
+            JOptionPane.showMessageDialog(null, "Updated Successfully!");
             displayData();
+
+            // Reset form
             checkadd = true;
             addlabel.setForeground(cyan);
             vid.setText("");
             vname.setText("");
             vprice.setText("");
             vstat.setSelectedIndex(0);
-            
-            }
-         }         
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Database Error: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+}
+
     }//GEN-LAST:event_updateMouseClicked
 
     private void updateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateMouseEntered

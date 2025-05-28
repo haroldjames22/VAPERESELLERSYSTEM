@@ -45,12 +45,14 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         acc_name = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,6 +98,23 @@ public class adminDashboard extends javax.swing.JFrame {
         acc_name.setText("ADMIN");
         jPanel2.add(acc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 120, -1));
 
+        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
+        });
+        jPanel5.setLayout(null);
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("LOGS");
+        jPanel5.add(jLabel2);
+        jLabel2.setBounds(0, 10, 120, 22);
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 120, 40));
+
         jPanel9.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 120, 340));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
@@ -127,16 +146,16 @@ public class adminDashboard extends javax.swing.JFrame {
         });
         jPanel4.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel2.setText("VAPES");
-        jPanel4.add(jLabel2);
-        jLabel2.setBounds(50, 110, 62, 22);
-
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imahe/vape icon.png"))); // NOI18N
         jPanel4.add(jLabel5);
         jLabel5.setBounds(20, 0, 110, 93);
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel7.setText("VAPES");
+        jPanel4.add(jLabel7);
+        jLabel7.setBounds(50, 110, 62, 22);
 
         jPanel9.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 150, 160));
 
@@ -195,6 +214,12 @@ public class adminDashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jPanel4MouseClicked
 
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+logs l = new logs();
+l.setVisible(true);
+this.dispose();
+    }//GEN-LAST:event_jPanel5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -240,10 +265,12 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel9;
     // End of variables declaration//GEN-END:variables
 

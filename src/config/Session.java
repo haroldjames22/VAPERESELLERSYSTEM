@@ -11,6 +11,7 @@ package config;
  */
 public class Session {
     
+    public static int currentUserId;
     private static Session instance;
     private int uid;
     private String fname;
